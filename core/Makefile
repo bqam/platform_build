@@ -1163,8 +1163,17 @@ INTERNAL_SYSTEMIMAGE_FILES := $(filter $(TARGET_OUT)/%, \
     $(RECOVERY_RESOURCE_ZIP) \
     $(RECOVERY_PATCH_INSTALL))
 
+systemimage-squisher: $(INTERNAL_SYSTEMIMAGE_FILES)
+	@echo -e ${CL_YLW}"Optimizing APPS!!!"${CL_RST}
+	$(hide) APKCERTS=$(APKCERTS_FILE) ./vendor/zos/tools/squisher $@
 
-FULL_SYSTEMIMAGE_DEPS := $(INTERNAL_SYSTEMIMAGE_FILES) $(INTERNAL_USERIMAGES_DEPS)
+ifeq ($(NO_SQUISHER),)
+.PHONY: systemimage-changelog systemimage-squisher
+FULL_SYSTEMIMAGE_DEPS := $(INTERNAL_SYSTEMIMAGE_FILES) $(INTERNAL_USERIMAGES_DEPS) systemimage-changelog systemimage-squisher
+else
+.PHONY: systemimage-changelog
+FULL_SYSTEMIMAGE_DEPS := $(INTERNAL_SYSTEMIMAGE_FILES) $(INTERNAL_USERIMAGES_DEPS) systemimage-changelog
+endif
 # -----------------------------------------------------------------
 # installed file list
 # Depending on anything that $(BUILT_SYSTEMIMAGE) depends on.
