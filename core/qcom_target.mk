@@ -116,6 +116,12 @@ $(call project-set-path,qcom-sensors,hardware/qcom/sensors)
 $(call project-set-path,qcom-loc-api,vendor/qcom/opensource/location)
 $(call project-set-path,qcom-dataservices,$(TARGET_DEVICE_DIR)/dataservices)
 
+$(call project-set-path,qcom-camera,hardware/qcom/camera)
+$(call project-set-path,qcom-gps,hardware/qcom/gps)
+$(call project-set-path,qcom-sensors,hardware/qcom/sensors)
+$(call project-set-path,qcom-loc-api,vendor/qcom/opensource/location)
+$(call project-set-path,qcom-dataservices,$(TARGET_DEVICE_DIR)/dataservices)
+
 $(call ril-set-path-variant,ril)
 $(call wlan-set-path-variant,wlan)
 $(call bt-vendor-set-path-variant,bt)
