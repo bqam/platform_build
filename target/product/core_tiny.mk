@@ -96,7 +96,8 @@ PRODUCT_BOOT_JARS := \
     ims-common \
     apache-xml \
     nullwebview \
-    org.apache.http.legacy.boot
+    org.apache.http.legacy.boot \
+    org.dirtyunicorns.utils
 
 # The order of PRODUCT_SYSTEM_SERVER_JARS matters.
 PRODUCT_SYSTEM_SERVER_JARS := \
