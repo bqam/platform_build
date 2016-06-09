@@ -1893,9 +1893,9 @@ $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE) $(DISTTOOLS)
 	   $(if $(OEM_OTA_CONFIG), -o $(OEM_OTA_CONFIG)) \
 	   $(BUILT_TARGET_FILES_PACKAGE) $@
 
-TARGET_PACKAGE := $(PRODUCT_OUT)/AOSP-RRO-$(PLATFORM_VERSION)-$(shell date +%Y%m%d)-$(TARGET_DEVICE)-$(USER).zip
+TARGET_PACKAGE := $(PRODUCT_OUT)/ZEPHYR-OS-$(PLATFORM_VERSION)-$(shell date +%Y%m%d)-$(TARGET_DEVICE).zip
 
-.PHONY: otapackage bacon aosprro bootzip
+.PHONY: otapackage bacon zephyr bootzip
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
 bacon: otapackage
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(TARGET_PACKAGE)
@@ -1905,7 +1905,7 @@ bacon: otapackage
 	@echo -e ${CL_BLD}${CL_YLW}"MD5: "${CL_YLW}" `cat $(TARGET_PACKAGE).md5sum | awk '{print $$1}' `"${CL_RST}
 	@echo -e ${CL_BLD}${CL_YLW}"Size:"${CL_YLW}" `du -sh $(TARGET_PACKAGE) | awk '{print $$1}' `"${CL_RST}
 	@echo -e ${CL_BLD}${CL_CYN}"================================================================================"${CL_RST}
-aosprro: bacon
+zephyr: bacon
 
 bootzip: bootimage
 	$(BOOT_ZIP_FROM_IMAGE_SCRIPT) \
