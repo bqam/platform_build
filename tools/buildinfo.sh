@@ -61,4 +61,6 @@ if [ -n "$DEVICE_MAINTAINERS" ] ; then
 fi
 echo "ro.build.characteristics=$TARGET_AAPT_CHARACTERISTICS"
 
+echo "ro.zephyr.device=$ZEPHYR_DEVICE"
+
 echo "# end build properties"
