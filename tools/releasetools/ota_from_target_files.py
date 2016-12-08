@@ -648,6 +648,17 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.Print("Target: %s" % CalculateFingerprint(
       oem_props, oem_dict, OPTIONS.info_dict))
 
+  script.print("=========================================================")
+  script.print("______             ______                _______________ ")
+  script.print("___  /________________  /______  _______/__  __ \_  ___/ ")
+  script.Print("__  / _  _ \__  __ \_  __ \_  / / /_  ___/  / / /____ \  ")
+  script.Print("_  /__/  __/_  /_/ /  / / /  /_/ /_  /   / /_/ /____/ /  ")
+  script.Print("/____/\___/_  .___//_/ /_/_\__, / /_/    \____/ /____/   ")
+  script.Print("            /_/            /____/                        ")
+  script.Print("=========================================================")
+  script.Print("ZephyrOS-Nougat-Smoothness Redefined")
+  script.Print(" ")
+  script.AppendExtra("sleep (2);")
   script.AppendExtra("ifelse(is_mounted(\"/system\"), unmount(\"/system\"));")
   device_specific.FullOTA_InstallBegin()
 
