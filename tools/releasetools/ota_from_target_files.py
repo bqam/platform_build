@@ -648,14 +648,16 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.Print("Target: %s" % CalculateFingerprint(
       oem_props, oem_dict, OPTIONS.info_dict))
 
-  script.print("=========================================================")
-  script.print("______             ______                _______________ ")
-  script.print("___  /________________  /______  _______/__  __ \_  ___/ ")
-  script.Print("__  / _  _ \__  __ \_  __ \_  / / /_  ___/  / / /____ \  ")
-  script.Print("_  /__/  __/_  /_/ /  / / /  /_/ /_  /   / /_/ /____/ /  ")
-  script.Print("/____/\___/_  .___//_/ /_/_\__, / /_/    \____/ /____/   ")
-  script.Print("            /_/            /____/                        ")
-  script.Print("=========================================================")
+  script.Print(" ________                  __                     ")
+  script.Print("/\_____  \                /\ \                    ")
+  script.Print("\/____//'/'     __   _____\ \ \___   __  __  _ __ ")
+  script.Print("    //'/'    /'__`\/\ '__`\ \  _ `\/\ \/\ \/\`'__\")
+  script.Print("   //'/'___ /\  __/\ \ \L\ \ \ \ \ \ \ \_\ \ \ \/ ")
+  script.Print("   /\_______\ \____\\ \ ,__/\ \_\ \_\/`____ \ \_\ ") 
+  script.Print("   \/_______/\/____/ \ \ \/  \/_/\/_/`/___/> \/_/ ")  
+  script.Print("                     \ \_\             /\___/     ")                 
+  script.Print("                      \/_/             \/__/      ")                 
+  script.Print(" ")
   script.Print("ZephyrOS-Nougat-Smoothness Redefined")
   script.Print(" ")
   script.AppendExtra("sleep (2);")
@@ -689,8 +691,11 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
     system_diff = common.BlockDifference("system", system_tgt, src=None)
     system_diff.WriteScript(script, output_zip)
   else:
-    script.FormatPartition("/system")
-    script.Mount("/system", recovery_mount_options)
+    script.Print("Formatting /system...");
+    script.AppendExtra("run_program(\"/tmp/install/bin/format.sh\");")
+    script.Print("Mounting /system...");
+    script.Mount("/system")
+    script.Print("Injecting Zephyr into System...");
     if not has_recovery_patch:
       script.UnpackPackageDir("recovery", "/system")
     script.UnpackPackageDir("system", "/system")
