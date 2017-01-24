@@ -167,7 +167,7 @@ include $(BUILD_SYSTEM)/envsetup.mk
 # See envsetup.mk for a description of SCAN_EXCLUDE_DIRS
 FIND_LEAVES_EXCLUDES := $(addprefix --prune=, $(OUT_DIR) $(SCAN_EXCLUDE_DIRS) .repo .git)
 
--include vendor/aosp/config/BoardConfigCM.mk
+-include vendor/zos/config/BoardConfigCM.mk
 
 # The build system exposes several variables for where to find the kernel
 # headers:
