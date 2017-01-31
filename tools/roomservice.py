@@ -45,8 +45,8 @@ default_manifest = ".repo/manifest.xml"
 custom_local_manifest = ".repo/local_manifests/roomservice.xml"
 custom_default_revision = "zephyr-N"
 custom_dependencies = "zos.dependencies"
-org_manifest = "Zephyr-OS"  # leave empty if org is provided in manifest
-org_display = "Zephyr-OS"  # needed for displaying
+org_manifest = "devices"  # leave empty if org is provided in manifest
+org_display = "ZephyrOS-Devices"  # needed for displaying
 
 github_auth = None
 
